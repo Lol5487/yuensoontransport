@@ -1195,8 +1195,32 @@ footer {
 }
 
 @media (max-width: 768px) {
+    /* JOP GIF 在移动端的样式 */
+    .jop-gif {
+        width: 80px; /* 减小GIF尺寸 */
+        top: 70px; /* 调整位置，避免与导航重叠 */
+    }
+    
+    /* 导航栏在移动端的样式 */
     header .container {
         flex-direction: column;
+    }
+    
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .company-name h1 {
+        font-size: 1.4rem;
+    }
+    
+    .company-name p {
+        font-size: 0.8rem;
     }
     
     nav {
@@ -1204,15 +1228,32 @@ footer {
     }
     
     nav ul {
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 5px;
     }
     
     nav ul li {
-        margin: 0 10px;
+        margin: 5px 8px;
     }
     
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 5px 0;
+    }
+    
+    .language-switcher {
+        margin: 10px 0 0 0;
+    }
+    
+    /* 调整页面内容在移动端的间距 */
     .section-title {
         font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero {
+        padding: 80px 0 60px;
     }
     
     .hero-content h1 {
@@ -1221,6 +1262,35 @@ footer {
     
     .hero-content p {
         font-size: 1rem;
+    }
+}
+
+/* 特小屏幕设备优化 */
+@media (max-width: 480px) {
+    .jop-gif {
+        width: 60px; /* 进一步减小GIF尺寸 */
+        top: 60px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .company-name h1 {
+        font-size: 1.2rem;
+    }
+    
+    .company-name p {
+        font-size: 0.7rem;
+    }
+    
+    nav ul li a {
+        font-size: 0.85rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
     }
 }
 
