@@ -83,20 +83,45 @@ if (contactForm) {
             submitButton.textContent = '发送中...';
             submitButton.disabled = true;
             
-            // 模拟表单提交（实际项目中应替换为真实的表单提交逻辑）
-            setTimeout(() => {
-                // 显示成功消息
-                contactForm.innerHTML = `
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3 data-lang-key="form-success-title">提交成功!</h3>
-                        <p data-lang-key="form-success-message">感谢您的询价，我们将尽快与您联系。</p>
-                    </div>
-                `;
-                
-                // 更新翻译
-                applyTranslations();
-            }, 1500);
+            // 准备发送的表单数据
+            const templateParams = {
+                name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            // 使用EmailJS发送邮件
+            emailjs.send('default_service', 'template_default', templateParams)
+                .then(function(response) {
+                    console.log('邮件发送成功!', response.status, response.text);
+                    
+                    // 显示成功消息
+                    contactForm.innerHTML = `
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3 data-lang-key="form-success-title">提交成功!</h3>
+                            <p data-lang-key="form-success-message">感谢您的询价，我们将尽快与您联系。</p>
+                        </div>
+                    `;
+                    
+                    // 更新翻译
+                    if (typeof applyTranslations === 'function') {
+                        applyTranslations();
+                    }
+                })
+                .catch(function(error) {
+                    console.log('邮件发送失败...', error);
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    
+                    // 显示错误消息
+                    const errorMsg = document.createElement('div');
+                    errorMsg.className = 'error-message';
+                    errorMsg.textContent = '发送失败，请稍后再试';
+                    submitButton.parentNode.appendChild(errorMsg);
+                });
         }
     });
     
@@ -229,86 +254,83 @@ window.addEventListener('scroll', () => {
     scrollProgress.style.width = progressWidth;
 });
 
-// Form submission using Fetch API
+// 页面加载完成后初始化表单验证
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+    // 表单验证已在上方实现，这里不需要重复代码
+});
+
+//Email send功能
+function sendEmail() {
+    // 显示发送中状态
+    const submitButton = document.querySelector('.contact-form .btn');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = '发送中...';
+    submitButton.disabled = true;
+
+    // 获取表单数据
+    let parms = {
+        name: document.getElementById("name").value,
+        company: document.getElementById("company").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value,
+        // 添加收件人邮箱（如果您的模板支持）
+        to_email: "yuensoonkulai@yahoo.com",
+        // 添加时间戳
+        timestamp: new Date().toISOString()
+    };
+
+    console.log("准备发送邮件，参数:", parms);
+
+    // 检查EmailJS是否正确初始化
+    if (typeof emailjs === 'undefined') {
+        console.error("EmailJS未正确加载");
+        alert("发送系统未正确加载，请刷新页面后重试");
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+        return;
+    }
+
+    // 这里使用您的实际服务ID和模板ID
+    emailjs.send("service_u9kqciw", "template_5a1s9bl", parms)
+        .then(function(response) {
+            console.log("邮件发送成功!", response);
+            // 显示成功消息
+            document.getElementById('inquiry-form').innerHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3 data-lang-key="form-success-title">提交成功!</h3>
+                    <p data-lang-key="form-success-message">感谢您的询价，我们将尽快与您联系。</p>
+                </div>
+            `;
+            // 更新翻译
+            if (typeof applyTranslations === 'function') {
+                applyTranslations();
+            }
+        })
+        .catch(function(error) {
+            console.error("邮件发送失败详细信息:", error);
+            // 恢复按钮状态
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
             
-            // Get form data
-            const formData = new FormData(contactForm);
-            const formValues = {};
-            
-            for (let [key, value] of formData.entries()) {
-                formValues[key] = value;
+            // 显示更详细的错误消息
+            let errorMessage = "发送失败: ";
+            if (error.text) {
+                errorMessage += error.text;
+            } else if (error.message) {
+                errorMessage += error.message;
+            } else {
+                errorMessage += "未知错误，请检查控制台";
             }
             
-            // Show loading state
-            const submitButton = contactForm.querySelector('.submit-button');
-            const originalButtonText = submitButton.textContent;
-            submitButton.textContent = '发送中...';
-            submitButton.disabled = true;
+            alert(errorMessage);
             
-            // Here you would normally send the data to your server
-            // For demonstration, we'll simulate a successful response
-            setTimeout(() => {
-                // Show success message
-                contactForm.innerHTML = `
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3 data-lang-key="form-success-title">提交成功!</h3>
-                        <p data-lang-key="form-success-message">感谢您的询价，我们将尽快与您联系。</p>
-                    </div>
-                `;
-                
-                // Update translations if needed
-                if (typeof updatePageLanguage === 'function') {
-                    updatePageLanguage(currentLanguage);
-                }
-            }, 1500);
-            
-            // If you want to actually send the data to a server, use this:
-            /*
-            fetch('your-server-endpoint', {
-                method: 'POST',
-                body: formData,
-                // or if your API requires JSON:
-                // body: JSON.stringify(formValues),
-                // headers: {
-                //     'Content-Type': 'application/json'
-                // }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Handle success
-                contactForm.innerHTML = `
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3 data-lang-key="form-success-title">提交成功!</h3>
-                        <p data-lang-key="form-success-message">感谢您的询价，我们将尽快与您联系。</p>
-                    </div>
-                `;
-                
-                // Update translations if needed
-                if (typeof updatePageLanguage === 'function') {
-                    updatePageLanguage(currentLanguage);
-                }
-            })
-            .catch(error => {
-                // Handle error
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                alert('提交失败，请稍后再试。');
-                console.error('Error:', error);
+            // 在控制台输出更多调试信息
+            console.log("表单数据:", parms);
+            console.log("EmailJS配置:", {
+                serviceID: "service_u9kqciw",
+                templateID: "template_5a1s9bl"
             });
-            */
         });
-    }
-});
+}

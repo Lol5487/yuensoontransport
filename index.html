@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="zh-CN" id="html-root">
 <head>
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuen Soon Transport Agency Sdn. Bhd. - 专业物流运输解决方案</title>
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<!-- 添加这行来强制刷新缓存 -->
+    <!-- 添加这行来强制刷新缓存 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <script src="js/translations.js" defer></script>
+    <script type="text/javascript" 
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init({
+                publicKey: "idKmR5zOTRhLrkE-6",
+            });
+        })();
+    </script>
+    <script src="js/script.js"></script>
 </head>
+
 <body>
-    <div class="scroll-progress"></div>
+    <!-- 页面内容 -->
+    <script src="js/script.js"></script>
+</body>
+<div class="scroll-progress"></div>
     <!-- JOP GIF 图片 -->
     <div class="jop-gif">
         <img src="images/JOP.gif" alt="JOP">
@@ -232,7 +247,7 @@
                 </div>
                 <div class="contact-form">
                     <h3 data-lang-key="contact-inquiry">发送询价</h3>
-                    <form action="mailto:yuensoonkulai@yahoo.com" method="post" enctype="text/plain" id="inquiry-form">
+                    <form id="inquiry-form">
                         <div class="form-group">
                             <label for="name" data-lang-key="form-name">您的姓名：</label>
                             <input type="text" id="name" name="name" required>
@@ -257,8 +272,7 @@
                             <label for="message" data-lang-key="form-message">询价内容：</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-
-                        <button type="submit" class="submit-button" data-lang-key="form-submit">发送询价</button>
+                        <button type="button" onclick="sendEmail()" class="btn" data-lang-key="form-submit">发送</button>
                     </form>
                 </div>
             </div>
