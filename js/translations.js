@@ -107,7 +107,7 @@ const translations = {
         "company-mission-statement": "At Yuen Soon Transport Agency Sdn. Bhd., we believe that safe, on-time delivery of goods and your satisfaction are the main purposes of our company's operations. We continuously innovate service models, optimize transportation routes, improve operational efficiency, and create greater value for customers.",
         "company-history": "Company History",
         "history-1983": "Yuen Soon Transport Agency established (operated by Mr. Chong Yuen Soon)",
-        "history-1998": "Office set up at Ikea (150 square feet)",
+        "history-1998": "Office set up at Kulai",
         "history-2007": "Yuen Soon Transport Agency Sdn. Bhd. established<br>New office set up at Taman Mutiara (2 floors)<br>Warehouse established (7176 square feet)",
         "history-2017": "Expanded business scale, increased fleet size",
         "vision-title": "Company Vision",
