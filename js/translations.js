@@ -24,7 +24,7 @@ const translations = {
         "company-mission-statement": "在Yuen Soon Transport Agency Sdn. Bhd.，我们相信安全、准时的货物交付和您的满意是我们运营公司的主要宗旨。我们不断创新服务模式，优化运输路线，提高运营效率，为客户创造更大的价值。",
         "company-history": "公司历史",
         "history-1983": "Yuen Soon Transport Agency成立（由Mr.Chong Yuen Soon运营）",
-        "history-1998": "在Ikea设立办公室（150平方英尺）",
+        "history-1998": "在Kulai设立办公室",
         "history-2007": "Yuen Soon Transport Agency Sdn. Bhd.成立<br>在Taman Mutiara设立新办公室（2层）<br>建立仓库（7176平方英尺）",
         "history-2017": "扩大业务规模，增加车队数量",
         "vision-title": "公司愿景",
