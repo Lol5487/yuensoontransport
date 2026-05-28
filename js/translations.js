@@ -2,7 +2,7 @@
 const translations = {
     zh: {
         // 导航
-        "nav-home": "77",
+        "nav-home": "99",
         "nav-about": "关于我们",
         "nav-services": "服务",
         "nav-fleet": "车队",
