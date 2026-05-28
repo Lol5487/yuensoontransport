@@ -128,7 +128,7 @@ const translations = {
         "service-gps": "GPS Monitoring",
         "service-gps-desc": "All vehicles are equipped with GPS monitoring systems to track cargo location in real-time.",
         "service-insurance": "Insurance Coverage",
-        "service-insurance-desc": "The company has purchased annual GIT insurance coverage worth RM200,000.",
+        "service-insurance-desc": "The company has purchased annual GIT insurance coverage worth RM1,000,000.",
         "feature-experience": "<i class=\"fas fa-check-circle\"></i> 35 Years of Professional Experience",
         "feature-experience-desc": "Over 35 years of professional logistics service experience.",
         "feature-team": "<i class=\"fas fa-check-circle\"></i> Professional Driving Team",
