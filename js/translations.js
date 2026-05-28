@@ -45,7 +45,7 @@ const translations = {
         "service-gps": "GPS监控",
         "service-gps-desc": "所有车辆均配备GPS监控系统，实时跟踪货物位置。",
         "service-insurance": "保险保障",
-        "service-insurance-desc": "公司购买了价值RM200,000的年度GIT保险覆盖。",
+        "service-insurance-desc": "公司购买了价值RM1,000,000的年度GIT保险覆盖。",
         "feature-experience": "<i class=\"fas fa-check-circle\"></i> 35年专业经验",
         "feature-experience-desc": "超过35年的专业物流服务经验。",
         "feature-team": "<i class=\"fas fa-check-circle\"></i> 专业驾驶团队",
