@@ -67,17 +67,8 @@ const translations = {
         "contact-address": "地址",
         "contact-phone": "电话/传真",
         "contact-email": "电子邮件",
-        "contact-inquiry": "发送询价",
         "whatsapp-text": "添加WhatsApp",
-        "form-name": "您的姓名：",
-        "form-company": "公司名称：",
-        "form-email": "电子邮箱：",
-        "form-phone": "联系电话：",
-        "form-message": "询价内容：",
-        "form-submit": "发送询价",
-        "form-success-title": "提交成功!",
-        "form-success-message": "感谢您的询价，我们将尽快与您联系。",
-        
+
         // 页脚
         "footer-links": "快速链接",
         "footer-contact": "联系方式",
@@ -150,17 +141,8 @@ const translations = {
         "contact-address": "Address",
         "contact-phone": "Phone/Fax",
         "contact-email": "email",
-        "contact-inquiry": "Send Inquiry",
         "whatsapp-text": "Add to WhatsApp",
-        "form-name": "Your Name:",
-        "form-company": "Company Name:",
-        "form-email": "Email:",
-        "form-phone": "Phone Number:",
-        "form-message": "Message:",
-        "form-submit": "Send Inquiry",
-        "form-success-title": "Submission Successful!",
-        "form-success-message": "Thank you for your inquiry, we will contact you soon.",
-        
+
         // Footer
         "footer-links": "Quick Links",
         "footer-contact": "Contact Information",
@@ -168,8 +150,8 @@ const translations = {
     }
 };
 
-// 获取当前语言，默认为中文
-let currentLang = localStorage.getItem('language') || 'zh';
+// 获取当前语言，默认为英文
+let currentLang = localStorage.getItem('language') || 'en';
 
 // 设置HTML根元素的lang属性
 document.getElementById('html-root').lang = currentLang === 'zh' ? 'zh-CN' : 'en';
