@@ -72,7 +72,7 @@ const translations = {
         // 页脚
         "footer-links": "快速链接",
         "footer-contact": "联系方式",
-        "footer-copyright": "&copy; 2025 Yuen Soon Transport Agency Sdn. Bhd. 版权所有"
+        "footer-copyright": "&copy; 2026 Yuen Soon Transport Agency Sdn. Bhd. 版权所有"
     },
     en: {
         // Navigation
@@ -146,7 +146,7 @@ const translations = {
         // Footer
         "footer-links": "Quick Links",
         "footer-contact": "Contact Information",
-        "footer-copyright": "&copy; 2025 Yuen Soon Transport Agency Sdn. Bhd. All Rights Reserved"
+        "footer-copyright": "&copy; 2026 Yuen Soon Transport Agency Sdn. Bhd. All Rights Reserved"
     }
 };
 
